@@ -33,6 +33,3 @@ class LocalStorageUtil {
 }
 
 const localStorageUtil = new LocalStorageUtil()
-
-localStorageUtil.putProducts('el3')
-
