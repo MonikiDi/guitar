@@ -5,17 +5,22 @@ function render() {
     productsPage.render();
 }
 
+spinnerPage.render();
+
 let CATALOG = [];
 
 
 //https://api.jsonserve.com/BWJna9
 fetch('server/catalog.json')
-.then(res => res.json())
-.then(body => {
-    CATALOG = body;
-    
-    render();
+    .then(res => res.json())
+    .then(body => {
+        CATALOG = body;
+        setTimeout(() => {
+            spinnerPage.handleClear();
+            render();
+        }, 2000)
     })
+
     .catch(error => {
         console.log(error);
     })
